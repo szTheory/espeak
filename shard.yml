@@ -1,0 +1,9 @@
+name: espeak
+version: 0.1.0
+
+authors:
+  - szTheory <szTheory@users.noreply.github.com>
+
+crystal: 0.30.1
+
+license: MIT
