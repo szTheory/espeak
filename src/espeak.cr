@@ -2,5 +2,6 @@
 module Espeak
   VERSION = "0.1.0"
 
-  # TODO: Put your code here
+  autoload :Speech, "espeak/speech"
+  autoload :Voice,  "espeak/voice"
 end
