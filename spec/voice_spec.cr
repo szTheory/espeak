@@ -23,11 +23,9 @@ Spectator.describe Espeak::Voice do
     subject(voice) { Espeak::Voice.find_by_language(language) }
     let(language) { "en" }
 
-    before_each do
-    end
-
-    # it { expect(subject.language).to eq(language) }
     it do
+      
     end
+    # it { expect(voice.language).to eq(language) }
   end
 end

@@ -42,7 +42,9 @@ module Espeak
     def speak
       cmd = cmd_join(espeak_command, "r")
       Process.run(cmd) do |process|
-        process.read
+        puts "+++++"
+        puts process.inspect
+        # process.read
       end
     end
 
@@ -63,8 +65,8 @@ module Espeak
         # process.input.write(speech)
         # process.output.close
         # process.
-        process.output.gets
-        process.close
+        # process.output.gets
+        # process.close
       end
       res.to_s
     end
@@ -72,13 +74,15 @@ module Espeak
     # Returns mp3 file bytes as a result of
     # Text-To-Speech conversion.
     #
-    def bytes()
+    def bytes
       speech = bytes_wav
       cmd = cmd_join(std_lame_command, "r+")
       res = Process.run(cmd) do |process|
-        process.input.write(speech)
-        process.output.gets
-        process.close
+        puts "= = = = = = = "
+        puts process.inspect
+        # process.input.write(speech)
+        # process.output.gets
+        # process.close
       end
       res.to_s
     end
@@ -86,19 +90,25 @@ module Espeak
     # Returns wav file bytes as a result of
     # Text-To-Speech conversion.
     #
-    def bytes_wav()
+    def bytes_wav
       cmd = cmd_join(espeak_command("--stdout"), "r")
+      puts ". . . . . cmd: #{cmd}"
       Process.run(cmd) do |process|
-        process.output.gets
-        process.close
+        puts "@@@@@@@@@"
+        # puts process.inspect
+        # puts process.output
+        # process.output.gets
+        # process.close
       end
     end
 
 
     private def espeak_command(flags="")
-      cmd_join do
+      val = cmd_join do
         ["espeak", "#{text}", "#{flags}", "-v#{voice}", "-p#{pitch}", "-k#{capital}", "-s#{speed}"]
       end
+      puts "---- val : #{val}"
+      val
     end
 
     private def std_lame_command
@@ -115,10 +125,16 @@ module Espeak
     # the equivalent of Ruby's `block_given?`
     # ref: https://stackoverflow.com/questions/46860848/equivalent-of-ruby-block-given-in-crystal
     private def cmd_join(*command)
-      cmd_join { command }
+      val = cmd_join { command }
+      # puts "///// val: #{val}"
+      val
     end
     private def cmd_join(*command)
-      (command || yield).join(' ')
+      val2 = (yield || command).join(' ')
+      # puts "///// command: #{command}"
+      # puts "///// yield: #{yield}"
+      # puts "///// val2: #{val2}"
+      val2
     end
   end
 end

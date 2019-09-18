@@ -56,6 +56,11 @@ module Espeak
     end
 
     def self.find_by_language(lang)
+      puts "++++"
+      puts "++++"
+      puts all.inspect
+      puts "++++"
+      puts "++++"
       all.find { |v| v.language == lang.to_s }
     end
 
