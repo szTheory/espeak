@@ -25,18 +25,18 @@ require "espeak"
 
 ```crystal
 # Speaks "YO!"
-speech = ESpeak::Speech.new("YO!")
+speech = Espeak::Speech.new("YO!")
 speech.speak # invokes espeak
 
 # Creates hello-de.mp3 file
-speech = ESpeak::Speech.new("Hallo Welt", voice: "de")
+speech = Espeak::Speech.new("Hallo Welt", voice: "de")
 speech.save("hello-de.mp3") # invokes espeak + lame
 
 # Lists voices
-ESpeak::Voice.all.map { |v| v.language } # ["af", "bs", "ca", "cs", "cy", "da", "de", "el", "en", "en-sc", "en-uk", "en-uk-north", "en-uk-rp", "en-uk-wmids", "en-us", "en-wi", "eo", "es", "es-la", "fi", "fr", "fr-be", "grc", "hi", "hr", "hu", "hy", "hy", "id", "is", "it", "jbo", "ka", "kn", "ku", "la", "lv", "mk", "ml", "nci", "nl", "no", "pap", "pl", "pt", "pt-pt", "ro", "ru", "sk", "sq", "sr", "sv", "sw", "ta", "tr", "vi", "zh", "zh-yue"]
+Espeak::Voice.all.map { |v| v.language } # ["af", "bs", "ca", "cs", "cy", "da", "de", "el", "en", "en-sc", "en-uk", "en-uk-north", "en-uk-rp", "en-uk-wmids", "en-us", "en-wi", "eo", "es", "es-la", "fi", "fr", "fr-be", "grc", "hi", "hr", "hu", "hy", "hy", "id", "is", "it", "jbo", "ka", "kn", "ku", "la", "lv", "mk", "ml", "nci", "nl", "no", "pap", "pl", "pt", "pt-pt", "ro", "ru", "sk", "sq", "sr", "sv", "sw", "ta", "tr", "vi", "zh", "zh-yue"]
 
 # Find particular voice
-ESpeak::Voice.find_by_language('en') #<ESpeak::Voice:0x007fe1d3806be8 @language="en", @name="default", @gender="M", @file="default">
+Espeak::Voice.find_by_language('en') #<Espeak::Voice:0x007fe1d3806be8 @language="en", @name="default", @gender="M", @file="default">
 ```
 
 ## Features
@@ -73,7 +73,7 @@ Speech.new("Zdravo svete", voice: "sr", pitch: 90, speed: 200).speak
 
 ## Licence
 
-espeak-ruby is released under the [MIT License](/MIT-LICENSE).
+espeak is released under the [MIT License](/MIT-LICENSE).
 
 
 ## Contributing

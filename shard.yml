@@ -7,3 +7,17 @@ authors:
 crystal: 0.30.1
 
 license: MIT
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.10
+  spectator:
+    gitlab: arctic-fox/spectator
+    version: ~> 0.8
+  cry:
+    github: szTheory/cry
+    version: ~> 0.4
+  mocks:
+    github: waterlink/mocks.cr
+    version: ~> 0.9

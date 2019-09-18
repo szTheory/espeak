@@ -1,6 +1,24 @@
 language: crystal
+crystal:
+  - latest
+  - nightly
 
-# Uncomment the following if you'd like Travis to run specs and check code formatting
-# script:
-#   - crystal spec
-#   - crystal tool format --check
+script:
+  - crystal spec
+  - crystal spec --release --no-debug
+  - crystal tool format --check
+  - bin/ameba src
+  - crystal docs
+
+matrix:
+  allow_failures:
+    - crystal: nightly
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  project_name: szTheory/espeak
+  on:
+    branch: master
+  local_dir: docs

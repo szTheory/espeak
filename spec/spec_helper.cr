@@ -1,2 +1,4 @@
-require "spec"
-require "../src/espeak"
+require "../src/*"
+require "spectator"
+require "mocks/spec"
+require "debug"
